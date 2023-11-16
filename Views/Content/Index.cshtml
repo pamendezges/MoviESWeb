@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewData["Title"] = "Content Page";
+}
+
+<!DOCTYPE html>
+
+
+
+<div class="text-center">
+
+    <table class="border border-2 table table-striper-columns text-center">
+        <tr>
+            <th>IdFilm</th>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Director</th>
+            <th>Producer</th>
+            <th>MainActor</th>
+        </tr>
+
+        @foreach (var film in Model.Films)
+        {
+            <tr>
+                <th>@film.IdFilm</th>
+                <th>@film.Title</th>
+                <th>@film.Category</th>
+                <th>@film.Director</th>
+                <th>@film.Producer</th>
+                <th>@film.MainActor</th>
+            </tr>
+        }
+    </table>
+
+    <table class="border border-2 table table-striper-columns text-center">
+        <tr>
+            <th>IdDocumentary</th>
+            <th>Title</th>
+            <th>Category</th>
+            <th>TvProducer</th>
+            <th>Voiceover</th>
+        </tr>
+
+        @foreach (var documentary in Model.Documentaries)
+        {
+            <tr>
+                <th>@documentary.IdDocumentary</th>
+                <th>@documentary.Title</th>
+                <th>@documentary.Category</th>
+                <th>@documentary.TvProducer</th>
+                @{
+                    if (@documentary.Voiceover == true)
+                    {
+                        <th>'Con Doblaje'</th>
+                    }
+                    else
+                    {
+                        <th>'Sin Doblaje'</th>
+                    }
+                }
+                
+            </tr>
+        }
+    </table>
+
+</div>
