@@ -7,6 +7,8 @@ namespace MoviESWeb.Models
     {
         public List<Film> Films { get; set; }
         public List<Documentary> Documentaries { get; set; }
+        public List<User> Users { get; set; }
+        public List<Admin> Admins { get; set; }
     }
 
 }

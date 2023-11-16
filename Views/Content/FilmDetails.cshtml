@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewData["Title"] = "Film Details Page";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="~/css/details.css" rel="stylesheet" />
+
+    <h2>Detalles de la Película</h2>
+
+    <div>
+        <h3>@Model.Title</h3>
+        <p><strong>Categoría:</strong> @Model.Category</p>
+        <p><strong>Director:</strong> @Model.Director</p>
+        <p><strong>Productor:</strong> @Model.Producer</p>
+        <p><strong>Actor Principal:</strong> @Model.MainActor</p>
+        <!-- Otros campos según sea necesario -->
+        @if (!string.IsNullOrEmpty(Model.Img))
+        {
+            <img src="data:image/jpeg;base64, @Model.Img" alt="Imagen de la película" />
+        }
+    </div>
+</head>
+<body>
+</body>
+</html>

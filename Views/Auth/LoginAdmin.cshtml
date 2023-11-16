@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Admin Login Page";
+}
+
+<!-- Login.cshtml -->
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <link href="~/css/login.css" rel="stylesheet" />
+    <title>Iniciar Sesión de Administrador</title>
+</head>
+<body>
+    <form asp-controller="Persons" asp-action="Index">
+        <h2>Iniciar Sesión</h2>
+
+        <div class"">
+            <label for="username">Nombre de Administrador:</label>
+            <input type="text" id="username" name="NameAdmin" required />
+        </div>
+
+        <div class"">
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="PasswordAdmin" required />
+        </div>
+
+        <div>
+            <button type="submit">Iniciar Sesión</button>
+        </div>
+    </form>
+</body>
+</html>
+

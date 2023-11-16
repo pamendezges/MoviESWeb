@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewData["Title"] = "Persons List Page";
+}
+
+<!DOCTYPE html>
+
+<link href="~/css/indexTable.css" rel="stylesheet" />
+
+
+<div class="text-center">
+
+    <table class="border border-2 table table-striper-columns text-center">
+        <tr>
+            <th>IdUser</th>
+            <th>NameUser</th>
+            <th>EmailUser</th>
+            <th>Acciones</th>
+        </tr>
+
+        @foreach (var user in Model.Users)
+        {
+            <tr>
+                <th>@user.IdUser</th>
+                <th>@user.NameUser</th>
+                <th>@user.EmailUser</th>
+                <td>
+                    <form asp-action="Delete" method="post">
+                        <input type="hidden" name="userId" value="@user.IdUser" />
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </form>
+                </td>
+
+            </tr>
+        }
+    </table>
+
+    <table class="border border-2 table table-striper-columns text-center">
+        <tr>
+            <th>IdAdmin</th>
+            <th>NameAdmin</th>
+            <th>EmailAdmin</th>
+        </tr>
+
+        @foreach (var admin in Model.Admins)
+        {
+            <tr>
+                <th>@admin.IdAdmin</th>
+                <th>@admin.NameAdmin</th>
+                <th>@admin.EmailAdmin</th>
+
+            </tr>
+        }
+    </table>
+
+</div>

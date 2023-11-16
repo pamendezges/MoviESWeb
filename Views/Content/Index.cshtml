@@ -5,6 +5,7 @@
 
 <!DOCTYPE html>
 
+<link href="~/css/indexTable.css" rel="stylesheet" />
 
 
 <div class="text-center">
@@ -23,7 +24,7 @@
         {
             <tr>
                 <th>@film.IdFilm</th>
-                <th>@film.Title</th>
+                <td><a href="@Url.Action("FilmDetails", new { id = film.IdFilm })">@film.Title</a></td>
                 <th>@film.Category</th>
                 <th>@film.Director</th>
                 <th>@film.Producer</th>
@@ -45,7 +46,7 @@
         {
             <tr>
                 <th>@documentary.IdDocumentary</th>
-                <th>@documentary.Title</th>
+                <td><a href="@Url.Action("DocumentaryDetails", new { id = documentary.IdDocumentary })">@documentary.Title</a></td>
                 <th>@documentary.Category</th>
                 <th>@documentary.TvProducer</th>
                 @{

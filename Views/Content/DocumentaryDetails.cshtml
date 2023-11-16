@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewData["Title"] = "Documentary Details Page";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="~/css/details.css" rel="stylesheet" />
+
+    <h2>Detalles del Documental</h2>
+
+    <div>
+        <h3>@Model.Title</h3>
+        <p><strong>Categoría:</strong> @Model.Category</p>
+        <p><strong>Productor de TV:</strong> @Model.TvProducer</p>
+        <p><strong>Voiceover:</strong> @(Model.Voiceover ? "Sí" : "No")</p>
+        @if (!string.IsNullOrEmpty(Model.Img))
+        {
+            <img src="data:image/jpeg;base64, @Model.Img" alt="Imagen de la película" />
+        }
+    </div>
+</head>
+<body>
+</body>
+</html>

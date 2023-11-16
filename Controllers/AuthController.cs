@@ -77,7 +77,29 @@ namespace MoviESWeb.Controllers
             return View(model);
         }
 
-        
+        [HttpGet]
+        public IActionResult LoginAdmin()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult LoginAdmin(LoginViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = _dbContext.Admins.FirstOrDefault(u => u.NameAdmin == model.NameUser && u.PasswordAdmin == model.PasswordUser);
+
+                if (user != null)
+                {
+                    return RedirectToAction("Index", "Persons");
+                }
+
+                ModelState.AddModelError("", "Nombre de usuario o contraseña incorrectos");
+            }
+
+            return View(model);
+        }
 
     }
 
