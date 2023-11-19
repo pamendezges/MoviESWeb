@@ -17,7 +17,6 @@
         <p><strong>Director:</strong> @Model.Director</p>
         <p><strong>Productor:</strong> @Model.Producer</p>
         <p><strong>Actor Principal:</strong> @Model.MainActor</p>
-        <!-- Otros campos según sea necesario -->
         @if (!string.IsNullOrEmpty(Model.Img))
         {
             <img src="data:image/jpeg;base64, @Model.Img" alt="Imagen de la película" />

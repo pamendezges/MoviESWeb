@@ -12,12 +12,12 @@
 
     <table class="border border-2 table table-striper-columns text-center">
         <tr>
-            <th>IdFilm</th>
-            <th>Title</th>
-            <th>Category</th>
+            <th>Id Película</th>
+            <th>Titulo</th>
+            <th>Categoría</th>
             <th>Director</th>
-            <th>Producer</th>
-            <th>MainActor</th>
+            <th>Productor</th>
+            <th>Actor Principal</th>
         </tr>
 
         @foreach (var film in Model.Films)
@@ -29,16 +29,17 @@
                 <th>@film.Director</th>
                 <th>@film.Producer</th>
                 <th>@film.MainActor</th>
+
             </tr>
         }
     </table>
 
     <table class="border border-2 table table-striper-columns text-center">
         <tr>
-            <th>IdDocumentary</th>
-            <th>Title</th>
-            <th>Category</th>
-            <th>TvProducer</th>
+            <th>Id Documental</th>
+            <th>Titulo</th>
+            <th>Categoría</th>
+            <th>TV Productor</th>
             <th>Voiceover</th>
         </tr>
 
@@ -59,9 +60,11 @@
                         <th>'Sin Doblaje'</th>
                     }
                 }
-                
+
             </tr>
         }
     </table>
+
+
 
 </div>

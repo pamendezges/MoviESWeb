@@ -50,4 +50,64 @@
         }
     </table>
 
+    <table class="border border-2 table table-striper-columns text-center">
+        <tr>
+            <th>Id Película</th>
+            <th>Titulo</th>
+            <th>Categoría</th>
+            <th>Director</th>
+            <th>Productor</th>
+            <th>Actor Principal</th>
+        </tr>
+
+        @foreach (var film in Model.Films)
+        {
+            <tr>
+                <th>@film.IdFilm</th>
+                <td><a href="@Url.Action("FilmDetails", new { id = film.IdFilm })">@film.Title</a></td>
+                <th>@film.Category</th>
+                <th>@film.Director</th>
+                <th>@film.Producer</th>
+                <th>@film.MainActor</th>
+                <td>
+                    <a asp-controller="Content" asp-action="DeleteFilm" asp-route-id="@film.IdFilm" class="btn btn-danger">Borrar Pelicula</a>
+                </td>
+            </tr>
+        }
+    </table>
+
+    <table class="border border-2 table table-striper-columns text-center">
+        <tr>
+            <th>Id Documental</th>
+            <th>Titulo</th>
+            <th>Categoría</th>
+            <th>TV Productor</th>
+            <th>Voiceover</th>
+        </tr>
+
+        @foreach (var documentary in Model.Documentaries)
+        {
+            <tr>
+                <th>@documentary.IdDocumentary</th>
+                <td><a href="@Url.Action("DocumentaryDetails", new { id = documentary.IdDocumentary })">@documentary.Title</a></td>
+                <th>@documentary.Category</th>
+                <th>@documentary.TvProducer</th>
+                @{
+                    if (@documentary.Voiceover == true)
+                    {
+                        <th>'Con Doblaje'</th>
+                    }
+                    else
+                    {
+                        <th>'Sin Doblaje'</th>
+                    }
+                }
+                <td>
+                    <a asp-controller="Content" asp-action="DeleteDocumentary" asp-route-id="@documentary.IdDocumentary" class="btn btn-danger">Borrar Documental</a>
+                </td>
+
+            </tr>
+        }
+    </table>
+
 </div>

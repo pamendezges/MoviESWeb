@@ -18,11 +18,15 @@ namespace MoviESWeb.Controllers
         {
             var users = _dbContext.Users.ToList();
             var admins = _dbContext.Admins.ToList();
+            var films = _dbContext.Films.ToList();
+            var documentaries = _dbContext.Documentaries.ToList();
 
             var viewModel = new MoviesViewModel
             {
                 Users = users,
-                Admins = admins
+                Admins = admins,
+                Films = films,
+                Documentaries = documentaries
             };
 
             return View(viewModel);

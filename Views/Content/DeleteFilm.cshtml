@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewData["Title"] = "Delete Film";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DeleteFilm</title>
+</head>
+<body>
+    <h2>Confirmar Eliminación de Película</h2>
+
+    <div>
+        <dl class="dl-horizontal">
+            <dt>Id</dt>
+            <dd>@Model.IdFilm</dd>
+            <dt>Nombre</dt>
+            <dd>@Model.Title</dd>
+            <dt>Categoria</dt>
+            <dd>@Model.Category</dd>
+            @if (!string.IsNullOrEmpty(Model.Img))
+            {
+                <img src="data:image/jpeg;base64, @Model.Img" alt="Imagen de la película" />
+            }
+        </dl>
+
+        <form asp-controller="Content" asp-action="DeleteFilm">
+            <input type="hidden" />
+            <input type="submit" value="Borrar Película" class="btn btn-danger" /> |
+        </form>
+
+        <a asp-controller="Persons" asp-action="Index">Volver a la Lista de Contenido</a>
+    </div>
+</body>
+</html>
