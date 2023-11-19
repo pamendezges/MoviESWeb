@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MoviESWeb.Models.DB;
 using MoviESWeb.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace MoviESWeb.Controllers
 {
@@ -25,6 +26,40 @@ namespace MoviESWeb.Controllers
             };
 
             return View(viewModel);
+        }
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null || _dbContext.Users == null)
+            {
+                return NotFound();
+            }
+
+            var user = await _dbContext.Users.FirstOrDefaultAsync(m => m.IdUser == id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return View(user);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            if (_dbContext.Users == null)
+            {
+                return Problem("Entity set 'ApplicationDbContext.Users'  is null.");
+            }
+            var user = await _dbContext.Users.FindAsync(id);
+            if (user != null)
+            {
+                _dbContext.Users.Remove(user);
+            }
+
+            await _dbContext.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
     }

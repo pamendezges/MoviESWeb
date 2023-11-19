@@ -25,10 +25,7 @@
                 <th>@user.NameUser</th>
                 <th>@user.EmailUser</th>
                 <td>
-                    <form asp-action="Delete" method="post">
-                        <input type="hidden" name="userId" value="@user.IdUser" />
-                        <button type="submit" class="btn btn-danger">Eliminar</button>
-                    </form>
+                    <a asp-action="Delete" asp-route-id="@user.IdUser" class="btn btn-danger">Borrar Usuario</a>
                 </td>
 
             </tr>
